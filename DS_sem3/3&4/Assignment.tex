@@ -1,0 +1,182 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\author{}
+\date{}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\begin{center}
+\hypertarget{st-thomas-college-thrissur}{%
+\subsection{ST THOMAS COLLEGE ,
+THRISSUR}\label{st-thomas-college-thrissur}}
+
+\hypertarget{department-of-computer-science}{%
+\subsection{Department of Computer
+Science}\label{department-of-computer-science}}
+
+\hypertarget{bsc-computer-science-2020-2023---semester-iii}{%
+\subsection{BSc Computer Science (2020-2023) - Semester
+III}\label{bsc-computer-science-2020-2023---semester-iii}}
+\end{center}
+\*
+\hypertarget{assignment-1}{%
+\subsection{Assignment 1}\label{assignment-1}}
+
+\hypertarget{compressing-a-sparse-matrix}{%
+\subsubsection{Compressing a Sparse
+Matrix}\label{compressing-a-sparse-matrix}}
+
+\hypertarget{question-1}{%
+\paragraph{Question 1}\label{question-1}}
+
+Accept a matrix from the user and store the coordinates of non-zero
+elements and the respective non-zero value in a 2D array as a triplet
+\{x,y,value\}. Also , store the number of rows, columns and number of
+non-zero elements(NNZ) as the first entry in the 2D array
+\{row\_count,column\_count,NNZ\}.
+
+\begin{itemize}
+\item
+  Accept a matrix from the user
+\item
+  Compress the matrix into 2D array stroing triplets of form
+  \{x,y,value\} The first entry must be \{row\_count,column\_count,NNZ\}
+\item
+  Display the 2D array
+\end{itemize}
+
+\hypertarget{input-matrix}{%
+\subsubsection{Input Matrix}\label{input-matrix}}
+
+\begin{verbatim}
+        1 0 0 0
+        0 2 0 0
+        1 0 0 0
+        0 7 0 1
+\end{verbatim}
+
+\hypertarget{output-2d-array}{%
+\subsubsection{Output 2D array}\label{output-2d-array}}
+
+\begin{verbatim}
+        4 4 5           // rows columns NNZ
+        0 0 1           // X Y Value
+        1 1 2           
+        2 0 1                
+        3 1 7           
+        3 3 1           
+\end{verbatim}
+
+\newpage
+
+\hypertarget{question-2}{%
+\paragraph{Question 2}\label{question-2}}
+
+Accept a matrix from the user and check if it is a sparse matrix. If it
+is a sparse matrix , compress the matrix into a 2D array or linked list
+
+\emph{Condition for being a sparse matrix}
+
+\begin{verbatim}
+number of non zero elements < (total number of elements in the matrix)/2
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Accept matrix from user
+\item
+  Check if the matrix is sparse and display the result.
+\item
+  if sparse , compress the matrix and display the compressed form
+\end{itemize}
+
+\hypertarget{input-matrix-1}{%
+\subsubsection{Input Matrix}\label{input-matrix-1}}
+
+\begin{verbatim}
+        
+        0 0 0 5
+        0 2 0 0
+        0 0 1 0
+        7 0 0 0
+        
+\end{verbatim}
+
+\hypertarget{output}{%
+\subsubsection{Output}\label{output}}
+
+\begin{verbatim}
+The matrix is sparse.
+
+Compressed representation of the sparse matrix:
+
+        4 4 4
+        0 3 5
+        1 1 2
+        2 2 1
+        3 0 7
+\end{verbatim}
+
+\hypertarget{input-matrix-2}{%
+\subsubsection{Input Matrix}\label{input-matrix-2}}
+
+\begin{verbatim}
+        1 1 0
+        0 1 1
+        1 0 1
+\end{verbatim}
+
+\hypertarget{output-matrix}{%
+\subsubsection{Output Matrix}\label{output-matrix}}
+
+\begin{verbatim}
+The matrix is not sparse
+\end{verbatim}
+
+\end{document}
