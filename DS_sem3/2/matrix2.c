@@ -38,18 +38,15 @@ struct node{
 };
 typedef struct node node;
 
-node* prepend_list(node* start,int x,int y,int val){
-
+void prepend_list(node** start,int x,int y,int val){
         node* temp=(node *)calloc(1, sizeof(node));
         
-        temp->link=start;
-        start=temp;
+        temp->link=(*start);
+        (*start)=temp;
         
-        start->x=x;
-        start->y=y;
-        start->val=val;
-
-        return start;
+        (*start)->x=x;
+        (*start)->y=y;
+        (*start)->val=val;
 }
 
 void display_list(node* start){
@@ -59,10 +56,10 @@ void display_list(node* start){
         }
 }
 
-void free_list(node* start){
-        while(start){
-                node* temp=start;
-                start=start->link;
+void free_list(node** start){
+        while((*start)){
+                node* temp=*start;
+                *start=(*start)->link;
                 free(temp);
         }
 }
@@ -75,14 +72,14 @@ int sizeof_list(node* start){
         }
         return number_of_nodes*sizeof(node);
 }
-
+//##########################################################
 
 node* csm_linkedL_method(int rows,int columns,int *matrix){
         node* start=NULL;
         for(int i=0;i<rows;i++)
                 for(int j=0;j<columns;j++)
                         if(*((matrix+i*columns)+j))
-                                start=prepend_list(start,i,j,*((matrix+i*columns)+j));
+                                prepend_list(&start,i,j,*((matrix+i*columns)+j));
         return start;
 }
 
@@ -106,7 +103,7 @@ int main(){
         printf("Size of Compressed Linked List (Bytes) : %d\n",sizeof_list(compressed_spare_matrix_list));
         
         free(matrix); 
-        free_list(compressed_spare_matrix_list);
+        free_list(&compressed_spare_matrix_list);
         
         return 0;
 };
