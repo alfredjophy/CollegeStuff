@@ -4,7 +4,7 @@
 
 # Sparse Matrix Compression
 
-*The below methods are are ineffecient for sparse matrices of small dimesnsions.*
+*The below methods are ineffecient for sparse matrices of small dimesnsions.*
 
 ## 1 . Array Method
 
