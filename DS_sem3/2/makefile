@@ -4,5 +4,3 @@
 	gcc -o matrix2.o matrix2.c
 3: 
 	gcc -o matrix3.o matrix3.c
-pdf:
-	pandoc Assignment.md -o AlfredJophyCS27.pdf
