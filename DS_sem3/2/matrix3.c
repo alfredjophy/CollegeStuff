@@ -9,10 +9,10 @@ void matrix_input(int** matrix,int *rows,int *columns,int *size){
         scanf("%d",rows);
         printf("Columns : ");
         scanf("%d",columns);
-        
+
         *size=(*rows)*(*columns)*sizeof(int);
         *matrix=calloc((*rows)*(*columns),sizeof(int));
-        
+
         printf("Enter the elements of the matrix : \n");
         for(int i=0;i<*rows;i++)
                 for(int j=0;j<*columns;j++){
@@ -39,10 +39,10 @@ typedef struct node node;
 
 void prepend_list(node** start,int x,int y,int val){
         node* temp=(node *)calloc(1, sizeof(node));
-        
+
         temp->link=(*start);
         (*start)=temp;
-        
+
         (*start)->x=x;
         (*start)->y=y;
         (*start)->val=val;
@@ -106,6 +106,59 @@ void csm_linkedL_method(node** start,int rows,int columns,int *matrix){
 }
 int main(){
 
+        int *matrix=NULL;
+        int rows,columns;
+        int matrix_size;
 
-        return 0;
+        int *compressed_sparse_matrix=NULL;
+        int csm_rows,csm_cols;
+        int csm_size;
+
+        node* compressed_sparse_matrix_list=NULL;
+
+        printf("  Compression of a Sparse Matrix\n");
+        printf("***********************************\n\n");
+        
+        //menu for choosing compression method
+        while(1){
+               
+                int choice;
+                printf("*******************************\n1. Input a matrix\n2. Use Array Method\n3. Use Linked List Method\n4. Quit\n");
+                printf("Enter choice : ");
+                scanf("%d",&choice);
+                switch (choice) {
+                        case 1: free(matrix);
+                                  matrix=NULL;
+                                  matrix_input(&matrix, &rows, &columns, &matrix_size);
+                                  matrix_display(matrix,rows,columns);
+                                  break;
+                        case 2: if(matrix==NULL){
+                                          printf("\nEnter a matrix first!!!\n");
+                                          continue;
+                                  }
+                                  printf("\nArray Method\n");
+                                  csm_array_method(rows, columns, matrix, &compressed_sparse_matrix, &csm_size, &csm_rows, &csm_cols);
+                                  printf("\nX Y Value");
+                                  matrix_display(compressed_sparse_matrix,csm_rows,csm_cols);
+                                  printf("\nSize of Sparse Matrix(Bytes)    :  %d \n",matrix_size);
+                                  printf("Size of Compressed Matrix(Bytes) :  %d  \n ",csm_size);
+                                  break;
+                        case 3: if(matrix==NULL){
+                                        printf("\nEnter a matrix first!!!\n");
+                                       continue;
+                                  }
+                                  printf("\nLinked List Method\n");
+                                  csm_linkedL_method(&compressed_sparse_matrix_list,rows, columns,matrix);
+                                  printf("\nX Y Value\n");
+                                  display_list(compressed_sparse_matrix_list);
+                                  printf("\nSize of Sparse Matrix(Bytes)            : %d\n",matrix_size);
+                                  printf("Size of Compressed Linked List (Bytes) : %d\n",sizeof_list(compressed_sparse_matrix_list));
+                                  break;
+                        case 4 : free_list(&compressed_sparse_matrix_list);
+                                   free(compressed_sparse_matrix);
+                                   free(matrix);
+                                   return 0;
+
+                }
+        }
 }
