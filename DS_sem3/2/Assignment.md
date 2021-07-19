@@ -1,4 +1,6 @@
-
+---
+geometry: margin=3cm
+---
 ### Alfred Jophy
 ### CS27
 
@@ -8,6 +10,9 @@
 
 ## 1 . Array Method
 
+### Algorithm
+
+### Source Code
 ```c
 // sparse matrix to array
 #include <stdio.h>
@@ -96,9 +101,12 @@ int main(){
 }
 
 ```
+\newpage
+## 2. Linked List Method
 
-### 2. Linked List Method
+### Algorithm
 
+### Source Code
 ```c
 //sparse matrix into linked list
 #include <stdio.h>

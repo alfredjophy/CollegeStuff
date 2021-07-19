@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* matrix_input(int *rows,int *columns,int *size){
+void matrix_input(int** matrix,int *rows,int *columns,int *size){
         printf("Enter the number of rows and columns of the matrix\n");
         printf("Rows    : ");
         scanf("%d",rows);
@@ -10,15 +10,13 @@ int* matrix_input(int *rows,int *columns,int *size){
         scanf("%d",columns);
 
         *size=(*rows)*(*columns)*sizeof(int);
-        int *matrix=calloc((*rows)*(*columns),sizeof(int));
+        *matrix=calloc((*rows)*(*columns),sizeof(int));
 
         printf("Enter the elements of the matrix : \n");
         for(int i=0;i<*rows;i++)
                 for(int j=0;j<*columns;j++){
-                        scanf("%d",((matrix+i*(*columns))+j));
+                        scanf("%d",((*matrix+i*(*columns))+j));
                 }
-
-        return matrix;
 }
 
 void matrix_display(int rows,int columns,int* matrix){
@@ -30,7 +28,6 @@ void matrix_display(int rows,int columns,int* matrix){
 
         printf("\n");
 }
-
 //#########################################################
 struct node{
         int x,y,val;
@@ -55,7 +52,6 @@ void display_list(node* start){
                 printf("%d %d %d\n",i->x,i->y,i->val);
         }
 }
-
 void free_list(node** start){
         while((*start)){
                 node* temp=*start;
@@ -74,13 +70,12 @@ int sizeof_list(node* start){
 }
 //##########################################################
 
-node* csm_linkedL_method(int rows,int columns,int *matrix){
-        node* start=NULL;
+void csm_linkedL_method(node** start,int rows,int columns,int *matrix){
+        *start=NULL;
         for(int i=0;i<rows;i++)
                 for(int j=0;j<columns;j++)
                         if(*((matrix+i*columns)+j))
-                                prepend_list(&start,i,j,*((matrix+i*columns)+j));
-        return start;
+                                prepend_list(&*start,i,j,*((matrix+i*columns)+j));
 }
 
 int main(){
@@ -90,20 +85,19 @@ int main(){
         int rows,columns;
         int size;
         
-
-        matrix=matrix_input(&rows, &columns, &size);
+        matrix_input(&matrix,&rows, &columns, &size);
         printf("The Matrix : \n");
         matrix_display(rows, columns, matrix);
         
-        compressed_spare_matrix_list=csm_linkedL_method(rows, columns,matrix);
+        csm_linkedL_method(&compressed_spare_matrix_list,rows, columns,matrix);
         printf("\nX Y Value\n");
         display_list(compressed_spare_matrix_list);
         
-        printf("Size of Sparse Matrix(Bytes)            : %d\n",size);
+        printf("\nSize of Sparse Matrix(Bytes)            : %d\n",size);
         printf("Size of Compressed Linked List (Bytes) : %d\n",sizeof_list(compressed_spare_matrix_list));
         
         free(matrix); 
         free_list(&compressed_spare_matrix_list);
         
         return 0;
-};
+}
