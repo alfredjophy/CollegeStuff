@@ -101,7 +101,41 @@ int main(){
 ```
 
 ### Output
+```
+Enter the number of rows and columns of the matrix
+Rows    : 4
+Columns : 4
+Enter the elements of the matrix : 
+0
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+0
+0
+The Matrix : 
 
+0 0 0 1 
+0 0 1 0 
+0 1 0 0 
+0 0 0 0 
+
+X Y Value
+0 3 1 
+1 2 1 
+2 1 1 
+Size of Sparse Matrix(Bytes)    :  64 
+Size of Compressed Matrix(Bytes) :  36  
+```
 \newpage
 ## 2. Linked List Method
 
@@ -214,7 +248,53 @@ int main(){
 ```
 
 ### Output
+```
+Enter the number of rows and columns of the matrix
+Rows    : 5
+Columns : 5
+Enter the elements of the matrix : 
+0
+0
+0
+1
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+The Matrix : 
 
+0 0 0 1 0 
+0 0 1 1 0 
+0 0 0 0 0 
+0 0 0 1 0 
+0 0 0 0 0 
+
+X Y Value
+3 3 1
+1 3 1
+1 2 1
+0 3 1
+
+Size of Sparse Matrix(Bytes)            : 100
+Size of Compressed Linked List (Bytes) : 96
+```
 \newpage
 ## 3. Menu-Driven 
 
@@ -388,4 +468,74 @@ int main(){
 ```
 
 ### Output
+```
+  Compression of a Sparse Matrix
+***********************************
 
+*******************************
+1. Input a matrix
+2. Use Array Method
+3. Use Linked List Method
+4. Quit
+Enter choice : 1
+Enter the number of rows and columns of the matrix
+Rows    : 4
+Columns : 4
+Enter the elements of the matrix : 
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+
+0 0 0 1 
+0 0 0 0 
+0 1 0 0 
+0 0 0 1 
+*******************************
+1. Input a matrix
+2. Use Array Method
+3. Use Linked List Method
+4. Quit
+Enter choice : 2
+Array Method
+
+X Y Value
+0 3 1 
+2 1 1 
+3 3 1 
+Size of Sparse Matrix(Bytes)    :  64 
+Size of Compressed Matrix(Bytes) :  36  
+ *******************************
+1. Input a matrix
+2. Use Array Method
+3. Use Linked List Method
+4. Quit
+Enter choice : 3
+Linked List Method
+
+X Y Value
+3 3 1
+2 1 1
+0 3 1
+
+Size of Sparse Matrix(Bytes)            : 64
+Size of Compressed Linked List (Bytes) : 72
+*******************************
+1. Input a matrix
+2. Use Array Method
+3. Use Linked List Method
+4. Quit
+Enter choice : 4
+```
