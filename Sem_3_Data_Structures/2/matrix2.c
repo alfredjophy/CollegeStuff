@@ -37,10 +37,10 @@ typedef struct node node;
 
 void prepend_list(node** start,int x,int y,int val){
         node* temp=(node *)calloc(1, sizeof(node));
-        
+
         temp->link=(*start);
         (*start)=temp;
-        
+
         (*start)->x=x;
         (*start)->y=y;
         (*start)->val=val;
@@ -84,20 +84,20 @@ int main(){
         int *matrix;
         int rows,columns;
         int size;
-        
+
         matrix_input(&matrix,&rows, &columns, &size);
         printf("The Matrix : \n");
         matrix_display(rows, columns, matrix);
-        
+
         csm_linkedL_method(&compressed_spare_matrix_list,rows, columns,matrix);
         printf("\nX Y Value\n");
         display_list(compressed_spare_matrix_list);
-        
+
         printf("\nSize of Sparse Matrix(Bytes)            : %d\n",size);
         printf("Size of Compressed Linked List (Bytes) : %d\n",sizeof_list(compressed_spare_matrix_list));
-        
+
         free(matrix); 
         free_list(&compressed_spare_matrix_list);
-        
+
         return 0;
 }
