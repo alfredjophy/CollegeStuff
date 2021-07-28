@@ -35,7 +35,7 @@ int is_pattern_present(char* str, char* pttr){
         int pttr_len=strlen(pttr);
         int i,j;
 
-        for (i=0;i<str_len-pttr_len;i++){
+        for (i=0;i<=str_len-pttr_len;i++){
                 for(j=0;j<pttr_len;j++){
                         if(str[i+j]!=pttr[j]){
                                 break;
