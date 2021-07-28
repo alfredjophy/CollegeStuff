@@ -33,16 +33,21 @@ Implement Naive String Matching Algorithm
 
 bool is_pattern_present(char* str, char* pttr){
         int i=0,j=0;
+        
         int str_len=strlen(str);
         int pttr_len=strlen(pttr);
         
         while(i<str_len && j<pttr_len){
                 if( str[i] == pttr[j])
                         j++;
-                else if(j)
+                else if(j){
                         j=0;
+                        continue;
+                }
+                i++;
 
         }
+
         return (j==pttr_len);
 }
 
