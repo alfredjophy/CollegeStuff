@@ -1,25 +1,22 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <string.h>
 
-bool is_pattern_present(char* str, char* pttr){
-        int i=0,j=0;
-        
+int is_pattern_present(char* str, char* pttr){
         int str_len=strlen(str);
         int pttr_len=strlen(pttr);
-        
-        while(i<str_len && j<pttr_len){
-                if( str[i] == pttr[j])
-                        j++;
-                else if(j){
-                        j=0;
-                        continue;
+        int i,j;
+
+        for (i=0;i<str_len-pttr_len;i++){
+                for(j=0;j<pttr_len;j++){
+                        if(str[i+j]!=pttr[j]){
+                                break;
+                        }
                 }
-                i++;
+                if(j==pttr_len)
+                        return 1;       // return true
 
         }
-
-        return (j==pttr_len);
+        return 0;               //return false
 }
 
 int main(){
@@ -30,7 +27,7 @@ int main(){
         scanf("%s",string);
         printf("Enter the pattern to search for : ");
         scanf("%s",pattern);
-        
+
         printf("The String  : %s\n",string);
         printf("The Pattern : %s\n",pattern);
 
