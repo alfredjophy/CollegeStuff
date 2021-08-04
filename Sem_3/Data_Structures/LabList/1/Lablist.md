@@ -1,3 +1,23 @@
+---
+geometry: margin=3cm
+header-includes:
+ - \usepackage{fvextra}
+ - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+---
+### Alfred Jophy
+### CS27
+
+## 1. Search an element in a two dimensional array
+
+### FlowChart
+
+![](./fl1.jpg)
+
+\newpage
+
+### Source Code
+```c
+
 /*
  *      To search for an element in a two dimensioanl array 
  */
@@ -41,3 +61,11 @@ int main(){
 
         return 0;
 }
+```
+
+### Output
+1. ![](./1.png)
+
+2. ![](./2.png)
+
+
