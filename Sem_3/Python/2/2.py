@@ -2,10 +2,8 @@
 #
 # Write a program to find the roots of a quadratic equation 
 #
-print("Alfred Jophy CS27          11/03/2021")
-
 import math
-
+print("Alfred Jophy CS27          11/03/2021")
 print("Form of a quadratic equation : ax^2 + bx + c")
 
 a=int(input("Enter the coefficient for x^2 : "))
