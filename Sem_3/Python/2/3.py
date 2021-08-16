@@ -19,4 +19,3 @@ if f :
 else:
     print("The string is not a palindrome.")
 
-    

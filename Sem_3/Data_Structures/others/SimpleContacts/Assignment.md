@@ -1,3 +1,29 @@
+---
+geometry: margin=2.5cm
+header-includes:
+- \usepackage{fvextra}
+- \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+---
+
+## ST THOMAS COLLEGE , THRISSUR
+## Department of Computer Science
+## BSc Computer Science (2020-23) - Semester III
+
+
+## Assignment 2
+
+#### Question
+The source code for a simple contact book program is given below. You are asked to go through the code and its documentation. It lacks certain features and you are expected to improve the functionalities listed below.;w
+
+   1. In the original , you can only store the contact's name and number. Add option to store contact's email and birthday.
+   2. The contacts are stored one after another. It would be better if they are added(inserted) alphabetically. (*HINT*: strcmp())
+   3. The searching of a contact by name requires typing the exact name. It would be better if it could search with only a part of the name. (*HINT*: naive search)
+   4. Add an option to search a contact by the contact's number. 
+   5. The contact details are lost when the program exits. It would be good if the data can be stored in a file.    
+
+##### Source Code
+```c
+
 #include <stdio.h>
 #include <string.h>
 
@@ -44,6 +70,7 @@ void display_contact(CONTACT C){
     printf("-----------------------------------------------------\n");
 
 }
+
 
 int search_contact_by_name(char name[]){
 
@@ -166,4 +193,23 @@ int main(void) {
     return 0;
 }
 
+```
 
+#### Documentation for Simple Contacts code
+
+* The contact details is stored in a structure name `CONTACT`.
+* The contacts list is stored as a global array named `List`.
+* New contacts are appended to the contact lists and `last_pos` stores the index of the last contact stored(i.e. length of list)
+* `add_contact()` is the function that appends the contact to the contacts list and updates `last_pos`
+    * argument : a `CONTACT` object that is to be added
+* `delete_contact()` deletes a contact at the index passed to it , shifts the contacts to the left and updates `last_pos`
+    * argument : the index of the contact to be deleted
+* `edit_contact()` replace a contact with an edited copy of itself.
+    * arguments : an `CONTACT` object with the modified details , index of the original contact
+* `accept_contact_details()` : accepts data about the contact from the user and stores it a contact
+    * argument : address of the `CONTACT` object where the data from the user needs to be stored
+* `display_contact()` : display the details of a contact with pretty formatting
+    * argument : a `CONTACT` object
+* `search_contact_by_name()` : searches the contacts list for an exact match (case sensitive).
+    * argument : a string name that needs to searched
+    * return value : a whole number,i.e., index of the matched contact or -1 meaning no matches

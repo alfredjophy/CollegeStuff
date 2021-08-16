@@ -1,0 +1,390 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\author{}
+\date{}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\begin{center}
+\hypertarget{st-thomas-college-thrissur}{%
+\subsection{ST THOMAS COLLEGE ,
+THRISSUR}\label{st-thomas-college-thrissur}}
+
+\hypertarget{department-of-computer-science}{%
+\subsection{Department of Computer
+Science}\label{department-of-computer-science}}
+
+\hypertarget{bsc-computer-science-2020-23---semester-iii}{%
+\subsection{BSc Computer Science (2020-23) - Semester
+III}\label{bsc-computer-science-2020-23---semester-iii}}
+\end{center}
+
+\hypertarget{assignment-2}{%
+\subsection{Assignment 2}\label{assignment-2}}
+
+\hypertarget{question}{%
+\paragraph{Question}\label{question}}
+
+The source code for a simple contact book program is given below. You
+are asked to go through the code and its documentation. It lacks certain
+features and you are expected to improve the functionalities listed
+below.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In the original , you can only store the contact's name and number.
+  Add option to store contact's email and birthday.
+\item
+  The contacts are stored one after another. It would be better if they
+  are added(inserted) alphabetically. (\emph{HINT}: strcmp())
+\item
+  The searching of a contact by name requires typing the exact name. It
+  would be better if it could search with only a part of the name.
+  (\emph{HINT}: naive search)
+\item
+  Add an option to search a contact by the contact's number.
+\item
+  The contact details are lost when the program exits. It would be good
+  if the data can be stored in a file.
+\end{enumerate}
+
+\hypertarget{source-code}{%
+\subparagraph{Source Code}\label{source-code}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\PreprocessorTok{\#include }\ImportTok{\textless{}stdio.h\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{\textless{}string.h\textgreater{}}
+
+\PreprocessorTok{\#define SIZE\_OF\_CONTACT\_LIST 100}
+
+\CommentTok{// ********************************************}
+\KeywordTok{struct}\NormalTok{ CONTACT }\OperatorTok{\{}
+
+    \DataTypeTok{long} \DataTypeTok{int}\NormalTok{ number}\OperatorTok{;}
+    \DataTypeTok{char}\NormalTok{ name}\OperatorTok{[}\DecValTok{50}\OperatorTok{];}
+\OperatorTok{\};}
+
+\KeywordTok{typedef} \KeywordTok{struct}\NormalTok{ CONTACT CONTACT}\OperatorTok{;}
+
+\NormalTok{CONTACT List}\OperatorTok{[}\NormalTok{SIZE\_OF\_CONTACT\_LIST}\OperatorTok{];}
+\DataTypeTok{int}\NormalTok{ last\_pos}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
+
+\DataTypeTok{void}\NormalTok{ add\_contact}\OperatorTok{(}\NormalTok{CONTACT c}\OperatorTok{)\{}
+\NormalTok{    List}\OperatorTok{[}\NormalTok{last\_pos}\OperatorTok{]=}\NormalTok{c}\OperatorTok{;}
+\NormalTok{    last\_pos}\OperatorTok{++;}
+\OperatorTok{\}}
+
+\DataTypeTok{void}\NormalTok{ delete\_contact}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ contact\_index}\OperatorTok{)\{}
+
+\NormalTok{    CONTACT temp }\OperatorTok{=}\NormalTok{ List}\OperatorTok{[}\NormalTok{contact\_index}\OperatorTok{];}
+
+    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\NormalTok{contact\_index}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}}\NormalTok{last\_pos}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}
+\NormalTok{        List}\OperatorTok{[}\NormalTok{i}\OperatorTok{]=}\NormalTok{List}\OperatorTok{[}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{];}
+
+\NormalTok{    last\_pos}\OperatorTok{{-}{-};}
+\OperatorTok{\}}
+
+\DataTypeTok{void}\NormalTok{ edit\_contact}\OperatorTok{(}\NormalTok{CONTACT edited\_contact}\OperatorTok{,}\DataTypeTok{int}\NormalTok{ index}\OperatorTok{)\{}
+
+\NormalTok{    List}\OperatorTok{[}\NormalTok{index}\OperatorTok{]=}\NormalTok{edited\_contact}\OperatorTok{;}
+
+\OperatorTok{\}}
+
+\DataTypeTok{void}\NormalTok{ display\_contact}\OperatorTok{(}\NormalTok{CONTACT C}\OperatorTok{)\{}
+
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{Name         : \%s}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{C}\OperatorTok{.}\NormalTok{name}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{Phone Number : \%li}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{C}\OperatorTok{.}\NormalTok{number}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{);}
+
+\OperatorTok{\}}
+
+
+\DataTypeTok{int}\NormalTok{ search\_contact\_by\_name}\OperatorTok{(}\DataTypeTok{char}\NormalTok{ name}\OperatorTok{[])\{}
+
+    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}}\NormalTok{last\_pos}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
+        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{ strcmp}\OperatorTok{(}\NormalTok{name}\OperatorTok{,}\NormalTok{List}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{name}\OperatorTok{)} \OperatorTok{==} \DecValTok{0}\OperatorTok{)}
+            \ControlFlowTok{return}\NormalTok{ i}\OperatorTok{;}
+    \OperatorTok{\}}
+
+    \ControlFlowTok{return} \OperatorTok{{-}}\DecValTok{1}\OperatorTok{;}
+\OperatorTok{\}}
+
+\DataTypeTok{void}\NormalTok{ accept\_contact\_details}\OperatorTok{(}\NormalTok{CONTACT }\OperatorTok{*}\NormalTok{c}\OperatorTok{)\{}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Enter name : "}\OperatorTok{);}
+\NormalTok{    scanf}\OperatorTok{(}\StringTok{"\%s"}\OperatorTok{,(}\NormalTok{c}\OperatorTok{{-}\textgreater{}}\NormalTok{name}\OperatorTok{));}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"Enter phone number : "}\OperatorTok{);}
+\NormalTok{    scanf}\OperatorTok{(}\StringTok{"\%li"}\OperatorTok{,\&(}\NormalTok{c}\OperatorTok{{-}\textgreater{}}\NormalTok{number}\OperatorTok{));}
+\OperatorTok{\}}
+
+\CommentTok{//**************************************************************}
+
+\DataTypeTok{void}\NormalTok{ display\_contacts}\OperatorTok{(}\NormalTok{CONTACT list}\OperatorTok{[],}\DataTypeTok{int}\NormalTok{ length}\OperatorTok{)\{}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Contact List}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\OperatorTok{);}
+    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}}\NormalTok{length}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
+\NormalTok{        printf}\OperatorTok{(}\StringTok{"\%d )"}\OperatorTok{,}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{);}
+\NormalTok{        display\_contact}\OperatorTok{(}\NormalTok{list}\OperatorTok{[}\NormalTok{i}\OperatorTok{]);}
+\NormalTok{        printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{);}
+    \OperatorTok{\}}
+\OperatorTok{\}}
+
+\CommentTok{//***************************************************************}
+
+\DataTypeTok{void}\NormalTok{ menu\_display}\OperatorTok{()\{}
+
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{1. Add Contact"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{2. Delete Contact"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{3. Edit Contact"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{4. Display Contacts"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{5. Search Contact By Name"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{0. Exit}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{);}
+\NormalTok{    printf}\OperatorTok{(}\StringTok{"Enter option : "}\OperatorTok{);}
+
+\OperatorTok{\}}
+
+\DataTypeTok{void}\NormalTok{ menu}\OperatorTok{()\{}
+    \DataTypeTok{int}\NormalTok{ choice}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}
+
+    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{choice}\OperatorTok{)\{}
+
+\NormalTok{        menu\_display}\OperatorTok{();}
+\NormalTok{        scanf}\OperatorTok{(}\StringTok{"\%d"}\OperatorTok{,\&}\NormalTok{choice}\OperatorTok{);}
+
+        \ControlFlowTok{switch}\OperatorTok{(}\NormalTok{choice}\OperatorTok{)\{}
+
+            \ControlFlowTok{case} \DecValTok{1}\OperatorTok{:} \OperatorTok{\{}
+\NormalTok{                        CONTACT C}\OperatorTok{;}
+\NormalTok{                        accept\_contact\_details}\OperatorTok{(\&}\NormalTok{C}\OperatorTok{);}
+\NormalTok{                        add\_contact}\OperatorTok{(}\NormalTok{C}\OperatorTok{);}
+                    \OperatorTok{\}}
+                    \ControlFlowTok{break}\OperatorTok{;}
+
+            \ControlFlowTok{case} \DecValTok{2}\OperatorTok{:} \OperatorTok{\{}
+                        \DataTypeTok{int}\NormalTok{ index}\OperatorTok{;}
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"Enter Index : "}\OperatorTok{);}
+\NormalTok{                        scanf}\OperatorTok{(}\StringTok{"\%d"}\OperatorTok{,\&}\NormalTok{index}\OperatorTok{);}
+\NormalTok{                        delete\_contact}\OperatorTok{(}\NormalTok{index}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{);}
+                    \OperatorTok{\}}
+                    \ControlFlowTok{break}\OperatorTok{;}
+
+            \ControlFlowTok{case} \DecValTok{3}\OperatorTok{:} \OperatorTok{\{}
+                        \DataTypeTok{int}\NormalTok{ index}\OperatorTok{;}
+
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"Enter Index : "}\OperatorTok{);}
+\NormalTok{                        scanf}\OperatorTok{(}\StringTok{"\%d"}\OperatorTok{,\&}\NormalTok{index}\OperatorTok{);}
+\NormalTok{                        CONTACT C}\OperatorTok{;}
+\NormalTok{                        accept\_contact\_details}\OperatorTok{(\&}\NormalTok{C}\OperatorTok{);}
+
+                        \CommentTok{// display original contact}
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Original Contact : "}\OperatorTok{);}
+\NormalTok{                        display\_contact}\OperatorTok{(}\NormalTok{List}\OperatorTok{[}\NormalTok{index}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]);}
+
+                        \CommentTok{// display edited contact}
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Modified Contact : "}\OperatorTok{);}
+\NormalTok{                        display\_contact}\OperatorTok{(}\NormalTok{C}\OperatorTok{);}
+
+                        \DataTypeTok{char}\NormalTok{ c}\OperatorTok{;}
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"Save edited contact?(Y/N)? "}\OperatorTok{);}
+\NormalTok{                        scanf}\OperatorTok{(}\StringTok{" \%c"}\OperatorTok{,\&}\NormalTok{c}\OperatorTok{);}
+                        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{c}\OperatorTok{==}\CharTok{\textquotesingle{}y\textquotesingle{}}\OperatorTok{||}\NormalTok{c}\OperatorTok{==}\CharTok{\textquotesingle{}Y\textquotesingle{}}\OperatorTok{)}
+\NormalTok{                            edit\_contact}\OperatorTok{(}\NormalTok{C}\OperatorTok{,}\NormalTok{index}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{);}
+                    \OperatorTok{\}}
+                    \ControlFlowTok{break}\OperatorTok{;}
+
+            \ControlFlowTok{case} \DecValTok{4}\OperatorTok{:}\NormalTok{ display\_contacts}\OperatorTok{(}\NormalTok{List}\OperatorTok{,}\NormalTok{last\_pos}\OperatorTok{);}
+                    \ControlFlowTok{break}\OperatorTok{;}
+
+            \ControlFlowTok{case} \DecValTok{5}\OperatorTok{:} \OperatorTok{\{}
+                        \DataTypeTok{char}\NormalTok{ name}\OperatorTok{[}\DecValTok{50}\OperatorTok{];}
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"Enter Name : "}\OperatorTok{);}
+\NormalTok{                        scanf}\OperatorTok{(}\StringTok{"\%s"}\OperatorTok{,}\NormalTok{name}\OperatorTok{);}
+
+                        \DataTypeTok{int}\NormalTok{ index}\OperatorTok{=}\NormalTok{search\_contact\_by\_name}\OperatorTok{(}\NormalTok{name}\OperatorTok{);}
+                        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{index }\OperatorTok{==} \OperatorTok{{-}}\DecValTok{1}\OperatorTok{)\{}
+\NormalTok{                            printf}\OperatorTok{(}\StringTok{"Not Found"}\OperatorTok{);}
+                            \ControlFlowTok{break}\OperatorTok{;}
+                        \OperatorTok{\}}
+\NormalTok{                        printf}\OperatorTok{(}\StringTok{"\%d )"}\OperatorTok{,}\NormalTok{index}\OperatorTok{+}\DecValTok{1}\OperatorTok{);}
+\NormalTok{                        display\_contact}\OperatorTok{(}\NormalTok{List}\OperatorTok{[}\NormalTok{index}\OperatorTok{]);}
+
+                    \OperatorTok{\}} 
+                    \ControlFlowTok{break}\OperatorTok{;}
+        \OperatorTok{\}}
+    \OperatorTok{\}}
+
+\OperatorTok{\}}
+
+\DataTypeTok{int}\NormalTok{ main}\OperatorTok{(}\DataTypeTok{void}\OperatorTok{)} \OperatorTok{\{}
+
+\NormalTok{    menu}\OperatorTok{();}
+
+    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{documentation-for-simple-contacts-code}{%
+\paragraph{Documentation}\label{documentation-for-simple-contacts-code}}
+
+\begin{itemize}
+\tightlist
+\item
+  The contact details is stored in a structure name \texttt{CONTACT}.
+\item
+  The contacts list is stored as a global array named \texttt{List}.
+\item
+  New contacts are appended to the contact lists and \texttt{last\_pos}
+  stores the index of the last contact stored(i.e.~length of list)
+\item
+  \texttt{add\_contact()} is the function that appends the contact to
+  the contacts list and updates \texttt{last\_pos}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    argument : a \texttt{CONTACT} object that is to be added
+  \end{itemize}
+\item
+  \texttt{delete\_contact()} deletes a contact at the index passed to it
+  , shifts the contacts to the left and updates \texttt{last\_pos}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    argument : the index of the contact to be deleted
+  \end{itemize}
+\item
+  \texttt{edit\_contact()} replace a contact with an edited copy of
+  itself.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    arguments : an \texttt{CONTACT} object with the modified details ,
+    index of the original contact
+  \end{itemize}
+\item
+  \texttt{accept\_contact\_details()} : accepts data about the contact
+  from the user and stores it a contact
+
+  \begin{itemize}
+  \tightlist
+  \item
+    argument : address of the \texttt{CONTACT} object where the data
+    from the user needs to be stored
+  \end{itemize}
+\item
+  \texttt{display\_contact()} : display the details of a contact with
+  pretty formatting
+
+  \begin{itemize}
+  \tightlist
+  \item
+    argument : a \texttt{CONTACT} object
+  \end{itemize}
+\item
+  \texttt{search\_contact\_by\_name()} : searches the contacts list for
+  an exact match (case sensitive).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    argument : a string name that needs to searched
+  \item
+    return value : a whole number,i.e., index of the matched contact or
+    -1 meaning no matches
+  \end{itemize}
+\end{itemize}
+
+\end{document}
