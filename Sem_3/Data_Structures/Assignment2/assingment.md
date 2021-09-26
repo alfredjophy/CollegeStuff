@@ -1,3 +1,22 @@
+---
+geometry: margin=2cm
+header-includes:
+ - \usepackage{fvextra}
+ - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+---
+
+## GROUP 7
+#### Members
+
+    1. AKSHAI. M K
+    2. ALFRED JOPHY
+    3. ALWIN VARGHESE T
+    4. AMAL JOSHY
+
+# Assignment 2
+
+### Source Code
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -71,14 +90,14 @@ void display_contact(CONTACT C){
 int search_contact_by_name(char name[]){
     for(int i=0;i<last_pos;i++)
         if( substring_search(name,List[i].name))
-            return i;
+        return i;
     return -1;
 }
 
 int search_contact_by_number(char number[]){
     for(int i=0;i<last_pos;i++)
-        if( strcmp(number,List[i].number) == 0)
-            return i;
+        if( strcmp(number,List[i].number)==0)
+        return i;
     return -1;
 }
 
@@ -228,5 +247,19 @@ int main(void) {
 
     return 0;
 }
+```
 
+### Output
 
+![](./pic/1.png)
+![](./pic/2.png)
+![](./pic/3.png)
+![](./pic/4.png)
+![](./pic/5.png)
+![](./pic/6.png)
+![](./pic/7.png)
+![](./pic/8.png)
+![](./pic/9.png)
+![](./pic/10.png)
+![](./pic/11.png)
+![](./pic/12.png)
