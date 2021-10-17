@@ -1,44 +1,46 @@
-// iterative binary search
+/* 
+*   iterative binary search
+*/
 #include <stdio.h>
 
 void bubbleSort(int array[],int len){
     for(int i=0;i<len;i++)
         for(int j=0;j<len-i-1;j++)
-        {
             if(array[j] > array[j+1]){
-
-                // swap array[i] array[i+1]
                 int temp=array[j];
                 array[j]=array[j+1];
                 array[j+1]=temp;
             }
-        }
 }
+void displayArray(int array[],int len){
 
+    for(int i=0;i<len;i++)
+        printf(" %d ",array[i]);
+}
+//
+//  returns -1 if elemenent is not found in the array else returns index of the elemenent
+//
 int binarySearch(int array[],int len,int num){
     int begin=0;
-    int end=len-1;
+    int end=len;
 
-    while(begin < end){
-        int center=(begin+end)/2;
+    while(begin <= end){
+        int center=begin+(begin-end)/2;
 
         if(array[center] == num )
             return center;
-        else if(array[center] < num){
+        else if(array[center] < num)
             begin=center+1;
-        }
-        else{
+        else
             end=center-1;
-        }
     }
 
-    if(!(begin<end))
-        return -1;
+    return -1;
 }
 
 int main(){
     int array[10];
-    int num;
+    int num,len;
 
     printf("Enter 10 numbers: ");
     for(int i=0;i<10;i++)
@@ -47,26 +49,20 @@ int main(){
     printf("Enter the number to search : ");
     scanf("%d",&num);
 
-    for(int i=0;i<10;i++)
-        printf(" %d ",array[i]);
-    //sort the list
+    displayArray(array,len);
 
     bubbleSort(array,10);
 
-    printf("\n");
-    for(int i=0;i<10;i++)
-        printf(" %d ",array[i]);
+    printf("\nThe Sorted Array\n");
+    displayArray(array,len);
 
     printf("\n");
 
-    // binary search
     int index=binarySearch(array,10,num);
-    if(index==-1){
+    if(index==-1)
         printf("Not found");
-    }
-    else{
+    else
         printf("Found at %d",index);
-    }
 
     return 0;
 }

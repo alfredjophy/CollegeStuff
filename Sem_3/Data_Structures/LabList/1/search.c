@@ -1,5 +1,5 @@
 /*
- *      To search for an element in a two dimensioanl array 
+ *      To search for an element in a two dimensional array 
  */
 
 #include <stdio.h>

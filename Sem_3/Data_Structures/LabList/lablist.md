@@ -13,6 +13,11 @@
 9. Implement stack using linked list.
 10. Implement queue using array.
 11. Implement queue using linked list.
-12. Traverse a binary tree recursivly in order. 
+12. Traverse a binary tree recursivly in order.
 13. Implement bubble sort.
 14. Merge one sorted array with another sorted array.
+
+## Notes
+
+    * Be very specific with the algorithm
+    * First time use of variable involves set

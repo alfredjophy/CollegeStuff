@@ -5,23 +5,34 @@ header-includes:
     - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 ---
 
-## 1. Search an element in a two dimensional array
+## 1. Binary Search ( Iterative )
 
 ### Algorithm
 
 1. start
-2. accept rows and columns
-3. accept elements into matrix m
-4. accept element e to be searched for in the matrix
-5. set i=0,found=false
-6. repeat while i < rows
+2. accept sorted list of number arr and length of list , len
+3. accept element e to be searched for in the list
+4. set beg=0,end=len
+5. repeat while beg <= len
+    1. set mid = (beg + end)/2
+    2. if arr[mid]= e , then print found at mid , break
+    3. else if arr[mid] > e , then set end = mid - 1
+    4. else , set beg = mid + 1
+6. if beg <= len , print not found
+7. stop
+
+#### Sorting algorithm ( Bubble Sort )
+
+1. start
+2. accept list of numbers , arr and length of list , len
+3. set i = 0
+4. repeat while i < len
     1. set j=0
-    2. repeat while j < columns
-        1. if e = m[i][j] , then print found at (i,j) and set flag=true
-        2. set j = j + 1
-    3. set i = i + 1
-7. if found = false, then print not found
-8. stop
+    2. repeat while j < len - i - 1
+        1. if arr[j] > arr[j+1] , then swap arr[i] and arr[j+1]
+        2. j = j + 1
+    3. i = i + 1
+5. stop
 
 ### Source Code
 
