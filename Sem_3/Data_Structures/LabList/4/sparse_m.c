@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct MATRIX {
     int **matrix;
@@ -7,7 +8,9 @@ struct MATRIX {
 };
 typedef struct MATRIX MATRIX;
 
-void create_matrix(MATRIX* m){
+void create_matrix(MATRIX* m,int rows,int columns){
+    m->rows=rows;
+    m->columns=columns;
     m->matrix=calloc(m->rows,sizeof(int*));
     for(int i=0;i<m->rows;i++)
         m->matrix[i]=calloc(m->columns,sizeof(int));
@@ -25,43 +28,52 @@ void display_matrix(MATRIX m){
 }
 
 //  returns the compressed sparse matrix or NULL if the matrix is not sparse
-MATRIX* compress_sparse_matrix(MATRIX m){
+bool check_if_sparse(MATRIX m){
+    int count=0;
+    for(int i=0;i<m.rows*m.columns ;i++)
+        if(*(m.matrix+i) != 0)
+            count++;
+    return (count < m.rows*m.columns);
+}
+MATRIX compress_sparse_matrix(MATRIX m){
     int NNZ=0;
     for(int i=0;i<m.rows;i++)
         for(int j=0;j<m.columns;j++)
             if(m.matrix[i][j])
                 NNZ++;
-    if(NNZ >= m.rows*m.columns)
-        return NULL;
 
-    MATRIX *csm=calloc(1,sizeof(MATRIX));
-    csm->rows=NNZ+1,csm->columns=3;
-    create_matrix(csm);
-    csm->matrix[0][0]=m.rows;
-    csm->matrix[0][1]=m.columns;
-    csm->matrix[0][2]=NNZ;
+    MATRIX csm;
+
+    if(NNZ >= m.rows*m.columns)
+        return csm;
+
+    int rows=NNZ+1,columns=3;
+    create_matrix(&csm,rows,columns);
+    csm.matrix[0][0]=m.rows;
+    csm.matrix[0][1]=m.columns;
+    csm.matrix[0][2]=NNZ;
 
     int k=1;
     for(int i=0;i<m.rows;i++)
         for(int j=0;j<m.columns;j++)
             if(m.matrix[i][j]){
-                csm->matrix[k][0]=i;
-                csm->matrix[k][1]=j;
-                csm->matrix[k++][2]=m.matrix[i][j];
+                csm.matrix[k][0]=i;
+                csm.matrix[k][1]=j;
+                csm.matrix[k++][2]=m.matrix[i][j];
             }
 
     return csm;
 }
 
 int main(){
-    MATRIX matrix,*compressed_sparse_matrix;
-    
+    MATRIX matrix,compressed_sparse_matrix;
+    int r,c; 
     printf("Enter the number of rows for the matrix : ");
-    scanf("%d",&(matrix.rows));
+    scanf("%d",&r);
     printf("Enter the number of columns for the matrix : ");
-    scanf("%d",&(matrix.columns));
+    scanf("%d",&c);
 
-    create_matrix(&matrix);
+    create_matrix(&matrix,r,c);
     
     printf("Enter the elements of the matrix :\n");
     for(int i= 0;i<matrix.rows;i++)
@@ -70,14 +82,14 @@ int main(){
     
     display_matrix(matrix);
     
-    compressed_sparse_matrix=compress_sparse_matrix(matrix);
-    if(!compressed_sparse_matrix)
+    if(check_if_sparse(matrix))
         printf("The Matrix is not sparse.");
     else{
         printf("The Matrix is sparse");
-        display_matrix(*compressed_sparse_matrix);
+        compressed_sparse_matrix=compress_sparse_matrix(matrix);
+        display_matrix(compressed_sparse_matrix);
     }
     free_matrix(matrix);
-    free_matrix(*compressed_sparse_matrix);
+    free_matrix(compressed_sparse_matrix);
     return 0;
 }

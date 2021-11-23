@@ -8,21 +8,25 @@ struct NODE{
 };
 typedef struct NODE NODE;
 
-NODE* start=NULL;
+struct LIST{
+    NODE *start;
 
-void append_list(int data){
+};
+typedef struct LIST LIST;
+
+void append_list(LIST *l,int data){
         int pos=0;
 
         NODE* ptr = malloc(sizeof(NODE));
         ptr->data=data;
         ptr->next=NULL;
 
-        if(!start){
-                start=ptr;
+        if(!l->start){
+                l->start=ptr;
         }
         else{
                 pos=1;
-                for(NODE* i=start;i->next;i=i->next)
+                for(NODE* i=l->start;i->next;i=i->next)
                     pos++;
         }
         printf("Node Inserted at %dth position\n",pos);
@@ -30,7 +34,7 @@ void append_list(int data){
 
 /*i am too lazy to write two functions*/
 /*lol*/
-bool insert_into_list(int data,int pos,bool before){
+bool insert_into_list(LIST *l,int data,int pos,bool before){
 
     NODE* ptr = malloc(sizeof(NODE));
     ptr->data=data;
@@ -41,7 +45,7 @@ bool insert_into_list(int data,int pos,bool before){
 
     NODE *node_pos;
     int count=0;
-    for(NODE* i=start; (i && count<pos) ;i=i->next)
+    for(NODE* i=l->start; (i && count<pos) ;i=i->next)
         count++;
      
     if(count!=pos)          // the position doesnt exist in the list
@@ -53,27 +57,33 @@ bool insert_into_list(int data,int pos,bool before){
     return true;
 }
 
-void display_list(){
+void display_list(LIST *l){
 
         printf("START ->");
-        for(NODE* i=start;i;i=i->next)
+        for(NODE* i=l->start;i;i=i->next)
             printf("{ %d } -> ",i->data);
 
         printf("\b|\n");
 }
 
-void free_list(){
+void free_list(LIST *l){
         NODE* temp=NULL;
-        for(NODE* i=start;i;i=i->next){
+        for(NODE* i=l->start;i;i=i->next){
                 free(temp);
                 temp=i;
         }
         free(temp);
 }
+
+void create_list(LIST *l){
+    l->start=NULL;
+}
 int main(){
 
         int num;
         int c;
+        LIST l;
+        create_list(&l);
 
         while(1){
                 printf("\n1. Append to list \n2. Display list\n3. Exit\n");
@@ -83,13 +93,13 @@ int main(){
                 switch(c){
                         case 1: printf("Enter number : ");
                                 scanf("%d",&num);
-                                append_list(num);
+                                append_list(&l,num);
                                 break;
 
-                        case 2: display_list();
+                        case 2: display_list(&l);
                                 break;
 
-                        case 3: free_list();
+                        case 3: free_list(&l);
                                 return 0;
                                 break;
                         default: printf("Invalid Choice\n");

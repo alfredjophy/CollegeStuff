@@ -7,45 +7,74 @@ header-includes:
 
 ### PRE LAB DISCUSSION
 
+We have implemented two kinds of linked lists in the previous programs - singly and doubly linked lists. We will be discussing a variation of the singly linked list.
+
+Circular linked list - a list where the last node is linked to the first node forming a loop/circle.
+
+more data at : https://www.programiz.com/dsa/circular-linked-list
+
 ### ALGORITHM
 
 #### APPEND NODE TO THE LIST
 
 Step 1 : Start
+
 Step 2 : accept a new node n
+
 Step 3 : if head is null , set head as n
+
 Step 4 : traverse i over linked list until i->next=head, then set i->next as n
+
 Step 5 : set n->next as head
+
 Step 6 : Stop
 
 #### PREPEND NODE TO THE LIST
 
 Step 1 : Start
+
 Step 2 : accept a new node n
+
 Step 3 : append n to the list
+
 Step 4 : set head as n
 
 #### SEARCHING IN THE LIST
 
 Step 1 : Start
+
 Step 2 : accept a number n to be searched for in the list
+
 Step 3 : set i as head,flag as false and repeat steps 4 while i->next != head
+
 Step 4 : if i->data equals n , print found and set flag as true
+
 Step 5 : if flag = false , print not found
+
 Step 6 : Stop
 
 #### DELETING A NODE IN THE LIST
 
 Step 1 : Start
+
 Step 2 : accept a number to be searched for in the list
+
 Step 3 : set flag as false , cur as head and prev as NULL
+
 Step 4 : repeat steps 5-7 while cur!=head
+
 Step 5 : if cur->data = x , set found as true and break
+
 Step 6 : set cur as cur->next
+
 Step 7 : if found = false , print not found
+
 Step 8 : else if cur = cur->next , head = null and exit
+
 Step 9 : else if cur = head , traverse prev over the list until prev->next!=head and head=head->next
+
 Step 10: prev->next = cur->next
+
 Step 11: Stop
 
 ### PROGRAM

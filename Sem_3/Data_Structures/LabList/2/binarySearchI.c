@@ -25,7 +25,7 @@ int binarySearch(int array[],int len,int num){
     int end=len;
 
     while(begin <= end){
-        int center=begin+(begin-end)/2;
+        int center=(end+begin)/2;
 
         if(array[center] == num )
             return center;

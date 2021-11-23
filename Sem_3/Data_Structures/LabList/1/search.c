@@ -34,7 +34,7 @@ int main(){
         for(int i=0;i<rows;i++)
                 for(int j=0;j<columns;j++)
                         if(array[i][j]==search_term)
-                                flag=1,printf("Number found at row %d column %d\n",i+1,j+1);
+                                flag=1,printf("Number found at (%d,%d)\n",i,j);
         
         if(!flag)
                 printf("Number not found in the 2-D array.\n");
