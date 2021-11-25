@@ -69,12 +69,12 @@ int main(int argc , char** argv){
         scanf("%d",&data);
         insert_btree(data,&root);
     }
+
     printf("\nPRE-ORDER  : ");
     preorder_btree(root);
 
     printf("\nIN-ORDER   : ");
     inorder_btree(root);
-
 
     printf("\nPOST-ORDER : ");
     postorder_btree(root);
