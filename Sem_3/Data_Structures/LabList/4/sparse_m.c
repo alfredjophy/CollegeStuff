@@ -22,6 +22,7 @@ void free_matrix(MATRIX m){
 }
 void display_matrix(MATRIX m){
     for(int i=0;i<m.rows;i++){
+        printf("\n");
         for(int j=0;j<m.columns;j++)
             printf("%d  ",m.matrix[i][j]);
     }
@@ -30,10 +31,11 @@ void display_matrix(MATRIX m){
 //  returns the compressed sparse matrix or NULL if the matrix is not sparse
 bool check_if_sparse(MATRIX m){
     int count=0;
-    for(int i=0;i<m.rows*m.columns ;i++)
-        if(*(m.matrix+i) != 0)
+    for(int i=0;i<m.rows;i++)
+        for(int j=0;j<m.columns;j++)
+        if(m.matrix[i][j] != 0 )
             count++;
-    return (count < m.rows*m.columns);
+    return (count < (m.rows*m.columns/2));
 }
 MATRIX compress_sparse_matrix(MATRIX m){
     int NNZ=0;
@@ -82,10 +84,10 @@ int main(){
     
     display_matrix(matrix);
     
-    if(check_if_sparse(matrix))
-        printf("The Matrix is not sparse.");
+    if(!check_if_sparse(matrix))
+        printf("\n\nThe Matrix is not sparse.");
     else{
-        printf("The Matrix is sparse");
+        printf("\n\nThe Matrix is sparse");
         compressed_sparse_matrix=compress_sparse_matrix(matrix);
         display_matrix(compressed_sparse_matrix);
     }

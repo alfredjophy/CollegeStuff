@@ -15,8 +15,6 @@ struct LIST{
 typedef struct LIST LIST;
 
 void append_list(LIST *l,int data){
-        int pos=0;
-
         NODE* ptr = malloc(sizeof(NODE));
         ptr->data=data;
         ptr->next=NULL;
@@ -25,45 +23,50 @@ void append_list(LIST *l,int data){
                 l->start=ptr;
         }
         else{
-                pos=1;
-                for(NODE* i=l->start;i->next;i=i->next)
-                    pos++;
+            NODE* i=l->start;
+            for(;i->next;i=i->next);
+            i->next=ptr;            
         }
-        printf("Node Inserted at %dth position\n",pos);
 }
 
-/*i am too lazy to write two functions*/
-/*lol*/
-bool insert_into_list(LIST *l,int data,int pos,bool before){
-
+bool insert_after_list(LIST *l,int data,int ele){
     NODE* ptr = malloc(sizeof(NODE));
     ptr->data=data;
     ptr->next=NULL;
+    
+    for(NODE*i = l->start;i;i=i->next)
+        if(i->data==ele){
+            ptr->next=i->next;
+            i->next=ptr;
+            return true;
+        }
 
-    if(before)
-       pos--;
-
-    NODE *node_pos;
-    int count=0;
-    for(NODE* i=l->start; (i && count<pos) ;i=i->next)
-        count++;
-     
-    if(count!=pos)          // the position doesnt exist in the list
-           return false; 
-
-    ptr->next=node_pos->next;
-    node_pos->next=ptr;
-
-    return true;
+    return false;
 }
 
-void display_list(LIST *l){
+bool delete_after_list(LIST *l,int ele){
 
-        printf("START ->");
-        for(NODE* i=l->start;i;i=i->next)
-            printf("{ %d } -> ",i->data);
+    for(NODE*i = l->start;i;i=i->next)
+        if(i->data==ele){
+            NODE* temp=i->next;
+            i->next=(i->next)->next;
+            free(temp);
+            return true;
+        }
+    return false;
+}
 
-        printf("\b|\n");
+
+void display_list(LIST l){
+    if(!l.start){
+        printf("\nThe list is empty.\n");
+        return;
+    }
+
+    printf("\nSTART -> ");
+    for(NODE* i=l.start;i;i=i->next)
+        printf("{ %d } -> ",i->data);
+    printf("\b|\n");
 }
 
 void free_list(LIST *l){
@@ -80,13 +83,13 @@ void create_list(LIST *l){
 }
 int main(){
 
-        int num;
+        int num,ele;
         int c;
         LIST l;
         create_list(&l);
 
         while(1){
-                printf("\n1. Append to list \n2. Display list\n3. Exit\n");
+                printf("\n1. Append to list \n2. Display list\n3. Insert After Element\n4. Deletion After Element\n0. Exit\n");
                 printf("Choice : ");
                 scanf("%d",&c);
 
@@ -96,12 +99,31 @@ int main(){
                                 append_list(&l,num);
                                 break;
 
-                        case 2: display_list(&l);
+                        case 2: display_list(l);
                                 break;
 
-                        case 3: free_list(&l);
+                        case 3: printf("Enter number : ");
+                                scanf("%d",&num);
+                                printf("Enter element : ");
+                                scanf("%d",&ele);
+                                if(insert_after_list(&l,num,ele))
+                                    printf("Inserted successfully.");
+                                else
+                                    printf("Insertion failed");
+                                break;
+
+                        case 4: printf("Enter element : ");
+                                scanf("%d",&ele);
+                                if(delete_after_list(&l,ele))
+                                    printf("Deleted successfully.");
+                                else
+                                    printf("Deleted failed");
+                                break;
+
+                        case 0: free_list(&l);
                                 return 0;
                                 break;
+
                         default: printf("Invalid Choice\n");
                 }
         }

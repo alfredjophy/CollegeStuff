@@ -6,6 +6,7 @@ struct NODE {
     int data;
     struct NODE *next;
 };
+typedef struct NODE NODE;
 struct NODE *head=NULL; 
 
 struct NODE* create_node(int n){
@@ -93,19 +94,19 @@ void display_list(){
 }
 
 void free_list(){
-    struct NODE *temp=NULL,*i=head;
+    struct NODE *temp=NULL,*i=head->next;
     do{
         free(temp);
         temp=i;
         i=i->next;
     }while(i!=head);
-    free(i);
+    free(head);
 }
 int main(){
     
     int num=0,c=1;
     struct NODE *ptr;
-    printf("1.Append to the list\n2.Prepend to the list\n3.Search in list\n4.Is the list empty?\n5.Delete from the list\n6. Display list\n");
+    printf("\n1. Append to the list\n2. Prepend to the list\n3. Search in list\n4. Is the list empty?\n5. Delete from the list\n6. Display list\n0. Exit");
     do{
         printf("\nEnter your choice : ");
         scanf("%d",&c);

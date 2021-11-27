@@ -1,6 +1,7 @@
 *.t.pdf
 
 *.o
+*.out
 *.dat
 
 *.png

@@ -33,6 +33,21 @@ void inorder_btree(NODE* root){
     inorder_btree(root->right);
 }
 
+void preorder_btree(NODE* root){
+    if(!root)   return;
+    printf("%d ",root->data);
+    inorder_btree(root->left);
+    inorder_btree(root->right);
+}
+
+void postorder_btree(NODE* root){
+    if(!root)   return;
+    inorder_btree(root->left);
+    inorder_btree(root->right);
+    printf("%d ",root->data);
+}
+
+
 void free_btree(NODE* root){
 
     if(!root)   return;
@@ -55,8 +70,14 @@ int main(int argc , char** argv){
         insert_btree(data,&root);
     }
 
+    printf("\nPRE-ORDER  : ");
+    preorder_btree(root);
+
     printf("\nIN-ORDER   : ");
     inorder_btree(root);
+
+    printf("\nPOST-ORDER : ");
+    postorder_btree(root);
 
     return 0;
 }

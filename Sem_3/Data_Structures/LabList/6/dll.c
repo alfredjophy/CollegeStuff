@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct NODE{
     int data;
@@ -46,34 +47,36 @@ void preppend_list(LIST *l,int data){
     l->start=ptr;
 }
 
-void insert_after(LIST *l,int data,int element){
+bool insert_after(LIST *l,int data,int element){
     NODE* ptr=create_node(data);
     if(!l->start){
         l->start=ptr;
-        return;
+        return true;
     }
     NODE*i=l->start;
-    for(;i->data!=element&&i;i=i->next);
+    for(;i&&i->data!=element;i=i->next);
     
     if(!i)
-        return;
+        return false;
     ptr->next=i->next;
     ptr->prev=i;
     if((ptr->next))
         (ptr->next)->prev=ptr;
     i->next=ptr;
+    return true;
 }
-void insert_before(LIST *l,int data,int element){
+
+bool insert_before(LIST *l,int data,int element){
     NODE* ptr=create_node(data);
     if(!l->start){
         l->start=ptr;
-        return;
+        return true;;
     }
     NODE*i=l->start;
-    for(;i->data!=element&&i;i=i->next);
+    for(;i&&i->data!=element;i=i->next);
 
     if(!i)
-        return;
+        return false;
     ptr->next=i;
     ptr->prev=i->prev;
     if((ptr->prev))
@@ -81,13 +84,15 @@ void insert_before(LIST *l,int data,int element){
     i->prev=ptr;
     if(i==l->start)
         l->start=ptr;
+    return true;
 }
-void delete_element(LIST *l,int element){
+
+bool delete_element(LIST *l,int element){
     NODE*i=l->start;
-    for(;i->data!=element&&i;i=i->next);
+    for(;i&&i->data!=element;i=i->next);
 
     if(!i)
-        return;
+        return false;
     if(i->next)
         (i->next)->prev=i->prev;
     if(i->prev)
@@ -96,23 +101,114 @@ void delete_element(LIST *l,int element){
         l->start=i->next;
 
     free(i);
+    return true;
 }
-void delete_from_begining(LIST *l){
+
+bool delete_from_begining(LIST *l){
     if(!l->start)
-        return;
+        return false;
     NODE *t=l->start;
     l->start=(l->start)->next;
+    return true;
 }
-void delete_from_end(LIST *l){
+
+bool delete_from_end(LIST *l){
     if(!l->start)
-        return;
+        return false;
     NODE*i=l->start;
     for(;i->next;i=i->next);
     (i->prev)->next=NULL;
     free(i);
+    return true;
+}
+void display_list(LIST l){
+    if(!l.start){
+        printf("\nThe list is empty.\n");
+        return;
+    }
+
+    printf("\nSTART -> ");
+    for(NODE* i=l.start;i;i=i->next)
+        printf("{ %d } <-> ",i->data);
+    printf("\b|\n");
+}
+
+void free_list(LIST *l){
+        NODE* temp=NULL;
+        for(NODE* i=l->start;i;i=i->next){
+                free(temp);
+                temp=i;
+        }
+        free(temp);
 }
 
 int main(){
 
+        int num,ele;
+        int c;
+        LIST l;
+        create_list(&l);
+
+        while(1){
+                printf("\n1. Append to list \n2. Display list\n3. Insert After Element\n4. Insert Before Element\n5. Delete First Element\n6. Delete Last Element\n7. Delete Element\n0. Exit\n");
+                printf("Choice : ");
+                scanf("%d",&c);
+
+                switch(c){
+                        case 1: printf("Enter number : ");
+                                scanf("%d",&num);
+                                append_list(&l,num);
+                                break;
+
+                        case 2: display_list(l);
+                                break;
+
+                        case 3: printf("Enter number : ");
+                                scanf("%d",&num);
+                                printf("Enter element : ");
+                                scanf("%d",&ele);
+                                if(insert_after(&l,num,ele))
+                                    printf("Inserted successfully.");
+                                else
+                                    printf("Insertion failed");
+                                break;
+
+                        case 4: printf("Enter number : ");
+                                scanf("%d",&num);
+                                printf("Enter element : ");
+                                scanf("%d",&ele);
+                                if(insert_before(&l,num,ele))
+                                    printf("Inserted successfully.");
+                                else
+                                    printf("Insertion failed");
+                                break;
+
+                        case 5:  if(delete_from_begining(&l))
+                                    printf("Deleted successfully.");
+                                 else
+                                    printf("Deleted failed");
+                                 break;
+
+                        case 6: if(delete_from_end(&l))
+                                    printf("Deleted successfully.");
+                                 else
+                                    printf("Deleted failed");
+                                break;
+
+                        case 7: printf("Enter element : ");
+                                scanf("%d",&ele);
+                                if(delete_element(&l,ele))
+                                    printf("Deleted successfully.");
+                                else
+                                    printf("Deleted failed");
+                                break;
+
+                        case 0: free_list(&l);
+                                return 0;
+                                break;
+
+                        default: printf("Invalid Choice\n");
+                }
+        }
     return 0;
 }
