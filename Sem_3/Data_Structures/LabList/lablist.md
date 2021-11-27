@@ -14,7 +14,7 @@ jj
 10. Implement queue using array.                    [ ]
 11. Implement queue using linked list.              [ ]
 12. Traverse a binary tree recursively in order.    [x]
-13. Implement bubble sort.                          [ ]
+13. Implement bubble sort.                          [x]
 14. Merge one sorted array with another sorted array. [ ]
 
 ## Notes
