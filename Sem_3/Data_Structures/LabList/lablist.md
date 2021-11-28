@@ -1,5 +1,5 @@
 # BCS4B06
-jj
+
 ### DATA STRUCTURES
 
 1. Search an element is a two dimensional array.    [x]
