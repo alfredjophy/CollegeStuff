@@ -36,8 +36,8 @@ void inorder_btree(NODE* root){
 void free_btree(NODE* root){
 
     if(!root)   return;
-    inorder_btree(root->left);
-    inorder_btree(root->right);
+    free_btree(root->left);
+    free_btree(root->right);
     free(root);
 }
 
